@@ -1,0 +1,43 @@
+[user]
+    name = Jeffrey Pratt
+    email = clementi@users.noreply.github.com
+[core]
+    autocrlf = true
+    editor = vim
+[push]
+    default = simple
+[alias]
+    st = status -s
+    lol = log --oneline --graph --decorate --all
+    dt = difftool
+    mt = mergetool
+    #br = symbolic-ref HEAD --short
+    br = checkout -b
+    co = checkout
+    ci = commit
+    recent = log --pretty=format:'%h %s' --since=2.weeks
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    alias = config --get-regexp ^alias\\.
+	leader = shortlog -sn
+	diff = diff -w
+	attr = blame
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	tool = bc4
+[difftool]
+	prompt = false
+[difftool "bc4"]
+    cmd = \"c:/Program Files (x86)/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
+[difftool "gvim"]
+    cmd = gvim.bat -d \"$LOCAL\" \"$REMOTE\"
+[merge]
+    tool = bc4
+[mergetool "bc4"]
+    cmd = \"c:/Program Files (x86)/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
+    trustExitCode = true
+[credential]
