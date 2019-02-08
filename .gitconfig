@@ -29,23 +29,11 @@
 	process = git-lfs filter-process
 	required = true
 [diff]
-	tool = bc4
+	tool = nvimdiff
 [difftool]
 	prompt = false
-[difftool "bc4"]
-    cmd = \"c:/Program Files (x86)/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\"
-[difftool "gvim"]
-    cmd = gvim.bat -d \"$LOCAL\" \"$REMOTE\"
-[merge]
-    tool = bc4
-[mergetool "bc4"]
-    cmd = \"c:/Program Files (x86)/Beyond Compare 4/bcomp.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-    trustExitCode = true
+[difftool "nvimdiff"]
+    cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [credential]
-[difftool "sourcetree"]
-	cmd = 'C:/Program Files/Beyond Compare 4/BComp.exe' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = 'C:/Program Files/Beyond Compare 4/BComp.exe' \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
-	trustExitCode = true
 [winUpdater]
 	recentlySeenVersion = 2.15.1.windows.2
