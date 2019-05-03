@@ -23,6 +23,7 @@
 	attr = blame
     tpull = pull --tags
     uncommit = reset HEAD^
+    fr = !git fetch && git rebase
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
