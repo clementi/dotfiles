@@ -4,6 +4,7 @@
 [core]
 	autocrlf = true
     editor = vim
+	quotepath = false
 [push]
     default = simple
 [alias]
@@ -36,5 +37,11 @@
 [difftool "nvimdiff"]
     cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [credential]
+	helper = manager
+[difftool "sourcetree"]
+	cmd = '' \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = true
 [winUpdater]
-	recentlySeenVersion = 2.15.1.windows.2
+	recentlySeenVersion = 2.25.0.windows.1
