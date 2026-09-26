@@ -7,9 +7,13 @@ export TYPST_FONT_PATHS=./fonts
 export FREEPLANE_JAVA_HOME="/usr/lib/jvm/default-java"
 
 {{ $cf := rbw "Cloudflare API" -}}
-export CLOUDFLARE_EMAIL={{ $cf.username | quote }}
-export CLOUDFLARE_API_KEY={{ $cf.password | quote }}
-export CLOUDFLARE_JEFFREYPRATTNET_ZONE_ID={{ $cf.ZoneID | quote }}
+export CLOUDFLARE_EMAIL={{ $cf.data.username | quote }}
+export CLOUDFLARE_API_KEY={{ $cf.data.password | quote }}
+{{ range $cf.fields -}}
+  {{ if eq .name "ZoneID" -}}
+export CLOUDFLARE_JEFFREYPRATTNET_ZONE_ID={{ .value | quote }}
+  {{ end -}}
+{{ end -}}
 
 export GUILE_LOAD_PATH="/home/linuxbrew/.linuxbrew/share/guile/site/3.0"
 export GUILE_LOAD_COMPILED_PATH="/home/linuxbrew/.linuxbrew/lib/guile/3.0/site-ccache"
