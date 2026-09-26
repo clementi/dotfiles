@@ -2,9 +2,6 @@
 
 alias rm='rm -i'
 
-# alias ls='eza --icons=auto'
-# alias l='ls -la'
-
 alias ls='eza --icons=auto'
 alias l='ls -lag'
 
@@ -15,22 +12,31 @@ alias nvi='neovide'
 alias tg='topgrade'
 alias ue='tg -c -y --disable chezmoi --no-ask-retry --sudoloop'
 
+{{ $os := .chezmoi.os -}}
+{{ if eq $os "linux" -}}
 alias cs='java -jar ~/.local/bin/coursier.jar'
+{{ end -}}
 
 alias hs='http-server'
 
+{{ if eq $os "linux" -}}
 alias zen='flatpak run app.zen_browser.zen'
+{{ end -}}
 
 # alias sbcl='rlwrap sbcl'
 
 alias we='watchexec'
 
+{{ if eq $os "linux" -}}
 alias tad='textadept-curses'
 alias gtad='textadept-gtk'
+{{ end -}}
 
 alias mi='mediainfo'
 
+{{ if eq $os "linux" -}}
 alias gimp='flatpak run org.gimp.GIMP'
+{{ end -}}
 
 alias tclsh='rlwrap tclsh'
 
