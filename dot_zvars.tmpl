@@ -8,17 +8,18 @@ export FREEPLANE_JAVA_HOME="/usr/lib/jvm/default-java"
 
 {{ $cf := rbw "Cloudflare API" -}}
 export CLOUDFLARE_EMAIL={{ $cf.data.username | quote }}
-export CLOUDFLARE_API_KEY={{ $cf.data.password | quote }}
+export CLOUDFLARE_API_TOKEN={{ $cf.data.password | quote }}
 {{ range $cf.fields -}}
   {{ if eq .name "ZoneID" -}}
 export CLOUDFLARE_JEFFREYPRATTNET_ZONE_ID={{ .value | quote }}
   {{ end -}}
 {{ end -}}
 
-export GUILE_LOAD_PATH="/home/linuxbrew/.linuxbrew/share/guile/site/3.0"
-export GUILE_LOAD_COMPILED_PATH="/home/linuxbrew/.linuxbrew/lib/guile/3.0/site-ccache"
-export GUILE_SYSTEM_EXTENSIONS_PATH="/home/linuxbrew/.linuxbrew/lib/guile/3.0/extensions"
+{{ $paths := index .paths .chezmoi.os -}}
+export GUILE_LOAD_PATH="{{ $paths.brew.home }}/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="{{ $paths.brew.home }}/lib/guile/3.0/site-ccache"
+export GUILE_SYSTEM_EXTENSIONS_PATH="{{ $paths.brew.home }}/lib/guile/3.0/extensions"
 
 export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig"
 
-export EDITOR="/home/linuxbrew/.linuxbrew/bin/nvim"
+export EDITOR="{{ $paths.brew.bin }}/nvim"

@@ -1,0 +1,9 @@
+paths:
+  linux:
+    brew:
+      bin: "/home/linuxbrew/.linuxbrew/bin"
+      home: "/home/linuxbrew/.linuxbrew"
+  darwin:
+    brew:
+      bin: "/opt/homebrew/bin"
+      home: "/opt/homebrew"
