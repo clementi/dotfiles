@@ -69,13 +69,14 @@
 	   haskell-mode
 	   javascript-mode
 	   javascript-ts-mode
-	   ) . eglot-ensure)))
+	   ) . eglot-ensure))
+  :bind (:map eglot-mode-map ("C-c a" . eglot-code-actions)))
 
 (with-eval-after-load 'eglot
   (defclass eglot-deno (eglot-lsp-server) ()
     :documentation "Deno language server")
 
-  (cl-defmethod eglot-initialization-options ((server eglot-deno))
+  (cl-defmethod eglot-initialization-options ((_ eglot-deno))
     "Deno needs these options to turn on."
     (list :enable t
 	  :lint t))
