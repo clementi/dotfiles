@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+; -*- lexical-binding: t; -*-
 
 ;;; Code:
 (setq package-archives
@@ -31,11 +31,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ag catppuccin-theme clojure-mode company consult doom-themes
+   '(ag cape catppuccin-theme clojure-mode consult doom-themes
 	editorconfig embark embark-consult emmet-mode flycheck fuel
-	haskell-mode kkp lsp-vtsls marginalia markdown-mode nerd-icons
-	orderless rg ripgrep scala-mode sly sml-mode treemacs
-	treemacs-nerd-icons vertico)))
+	haskell-mode kind-icon kkp lsp-vtsls magit marginalia
+	markdown-mode nerd-icons orderless rg ripgrep scala-mode sly
+	sml-mode treemacs treemacs-nerd-icons vertico)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -62,6 +62,19 @@
 
 (global-display-line-numbers-mode)
 
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
+
+(with-eval-after-load 'treesit
+  (add-to-list 'treesit-language-source-alist
+	       '(typst "https://github.com/uben0/tree-sitter-typst")))
+
+(use-package typst-ts-mode
+  :ensure t
+  :custom
+  (typst-ts-mode-watch-options "--open"))
+
 (use-package eglot
   :hook (((typescript-ts-mode
 	   typescript-mode
@@ -69,8 +82,11 @@
 	   haskell-mode
 	   javascript-mode
 	   javascript-ts-mode
+	   typst-ts.mode
 	   ) . eglot-ensure))
-  :bind (:map eglot-mode-map ("C-c a" . eglot-code-actions)))
+  :bind (:map eglot-mode-map ("C-c a" . eglot-code-actions))
+  :config (add-to-list 'eglot-server-programs
+		       '((typst-ts-mode) . ("tinymist" "lsp"))))
 
 (with-eval-after-load 'eglot
   (defclass eglot-deno (eglot-lsp-server) ()
@@ -105,16 +121,7 @@
   (setq flycheck-indication-mode 'left-fringe))
   
 
-(use-package haskell-mode
-  :ensure t
-  :hook (haskell-mode . lsp-deferred))
-
-;; (use-package typescript-mode
-;;   :ensure t
-;;   :hook ((typescript-mode . lsp-deferred)
-;; 	 (typescript-ts-mode . lsp-deferred)))
-
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'global-visual-line-mode)
 
 (global-set-key (kbd "C-c C-r") 'restart-emacs)
@@ -124,6 +131,41 @@
 
 (when (eq system-type 'darwin)
   (setq mac-option-modifier 'meta))
+
+(use-package corfu
+  :ensure t
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.1)
+  (corfu-popupinfo-delay 0.2)
+  :init
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  :hook
+  (eglot-managed-mode . (lambda ()
+			  (when (derived-mode-p 'typst-ts-mode)
+			    (setq-local completion-at-point-functions
+					(list #'eglot-completion-at-point
+					      #'cape-file)))))
+  :config
+  (setq tab-always-indent 'complete))
+
+(use-package kind-icon
+  :ensure t
+  :after corfu
+  :custom
+  (kind-icon-default-face 'corfu-default)
+  :config
+  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
+(use-package cape
+  :ensure t
+  :init
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-elisp-symbol))
 
 (use-package nerd-icons
   :ensure t
