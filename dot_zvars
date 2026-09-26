@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+export OSFONTDIR="$HOME/.local/share/fonts/:$HOME/.fonts:/usr/share/fonts"
+
+export TYPST_FONT_PATHS=./fonts
+
+export FREEPLANE_JAVA_HOME="/usr/lib/jvm/default-java"
+
+export CLOUDFLARE_EMAIL="me@jeffreypratt.net"
+export CLOUDFLARE_API_KEY="20deee88b5eb0f6d4e2b33e10795e0bbb5b91"
+export CLOUDFLARE_JEFFREYPRATTNET_ZONE_ID="1f2a7274f7d61f8ebb14599f58e66c1a"
+
+export GUILE_LOAD_PATH="/home/linuxbrew/.linuxbrew/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="/home/linuxbrew/.linuxbrew/lib/guile/3.0/site-ccache"
+export GUILE_SYSTEM_EXTENSIONS_PATH="/home/linuxbrew/.linuxbrew/lib/guile/3.0/extensions"
+
+export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig"

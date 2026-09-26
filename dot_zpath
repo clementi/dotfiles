@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+# export PATH="$PATH:$HOME/context/bin"
+export PATH="$PATH:$HOME/context/tex/texmf-linux-64/bin"
+export PATH="$PATH:$HOME/.config/emacs/bin"
+export PATH="$PATH:$HOME/Projects/lamm"
+export PATH="$PATH:/usr/racket/bin"
+export PATH="$PATH:/opt/textadept"
+export PATH="$PATH:$HOME/.roswell/bin"
+export PATH="$PATH:/opt/icl"
+export PATH="$PATH:$HOME/miniconda3/bin"
+export PATH="$PATH:$HOME/.nitrile/bin"
+export PATH="$PATH:$HOME/.nimble/bin"
+export PATH="$PATH:$HOME/.local/share/swiftly/bin"

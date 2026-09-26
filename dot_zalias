@@ -1,0 +1,59 @@
+#!/usr/bin/env sh
+
+alias rm='rm -i'
+
+# alias ls='eza --icons=auto'
+# alias l='ls -la'
+
+alias ls='eza --icons=auto'
+alias l='ls -lag'
+
+alias nv='nvim'
+alias n='nv'
+alias nvi='neovide'
+
+alias tg='topgrade'
+alias ue='tg -c -y --disable chezmoi --no-ask-retry --sudoloop'
+
+alias cs='java -jar ~/.local/bin/coursier.jar'
+
+alias hs='http-server'
+
+alias zen='flatpak run app.zen_browser.zen'
+
+# alias sbcl='rlwrap sbcl'
+
+alias we='watchexec'
+
+alias tad='textadept-curses'
+alias gtad='textadept-gtk'
+
+alias mi='mediainfo'
+
+alias gimp='flatpak run org.gimp.GIMP'
+
+alias tclsh='rlwrap tclsh'
+
+alias python='python3'
+
+alias bb='rlwrap bb'
+
+alias oc='opencode'
+
+alias fac='rlwrap /opt/factor/factor -run=listener'
+
+alias obs='obsidian'
+
+alias he='helium'
+
+alias flix="java -jar $HOME/.local/bin/flix.jar"
+
+alias sml='rlwrap sml'
+
+alias cm='chezmoi'
+
+alias e='emacs -nw'
+
+alias ew='emacs'
+
+unalias gst
