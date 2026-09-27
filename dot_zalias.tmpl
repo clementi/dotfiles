@@ -12,13 +12,9 @@ alias nvi='neovide'
 alias tg='topgrade'
 alias ue='tg -c -y --disable chezmoi --no-ask-retry --sudoloop'
 
-{{ $os := .chezmoi.os -}}
-{{ if eq $os "linux" -}}
-alias cs='java -jar ~/.local/bin/coursier.jar'
-{{ end -}}
-
 alias hs='http-server'
 
+{{ $os := .chezmoi.os -}}
 {{ if eq $os "linux" -}}
 alias zen='flatpak run app.zen_browser.zen'
 {{ end -}}
