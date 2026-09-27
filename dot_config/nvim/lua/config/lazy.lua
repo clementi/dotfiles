@@ -36,17 +36,6 @@ require("lazy").setup({
       dependencies = { 'nvim-tree/nvim-web-devicons' },
       opts = {},
     },
-    { 'mistweaverco/kulala.nvim',
-      keys = {
-        { "<leader>Rs", desc = "Send request" },
-        { "<leader>Ra", desc = "Send all requests" },
-        { "<leader>Rb", desc = "Open scratchpad" },
-      },
-      ft = { "http", "rest", "javascript", "lua" },
-      -- opts = {
-      --   global_keymaps = true,
-      -- },
-    },
     { 'nvim-lualine/lualine.nvim',
       dependencies = { 
         'nvim-tree/nvim-web-devicons'
