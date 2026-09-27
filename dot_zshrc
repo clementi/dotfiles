@@ -61,19 +61,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-# >>> juliaup initialize >>>
-
-# !! Contents within this block are managed by juliaup !!
-
-path=('/home/jeff/.juliaup/bin' $path)
-export PATH
-# Tab completion for juliaup and julia channel selection
-[ -f "/home/jeff/.julia/juliaup/completions/zsh.zsh" ] && source "/home/jeff/.julia/juliaup/completions/zsh.zsh"
-
-# <<< juliaup initialize <<<
-
-
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:
 #   - the correct directories to the PATH
