@@ -77,6 +77,11 @@ require("lazy").setup({
         'nvim-tree/nvim-web-devicons',
       },
       lazy = false,
+      config = function ()
+        require('neo-tree').setup({
+          close_if_last_window = true
+        })
+      end,
     },
     { 'leafgarland/typescript-vim' },
     {
