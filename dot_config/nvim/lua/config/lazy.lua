@@ -88,6 +88,9 @@ require("lazy").setup({
       'neovim/nvim-lspconfig'
     },
     {
+      'voidkss/vim-floaterm'
+    },
+    {
       'saghen/blink.cmp',
       -- optional: provides snippets for the snippet source
       -- dependencies = { 'rafamadriz/friendly-snippets' },
