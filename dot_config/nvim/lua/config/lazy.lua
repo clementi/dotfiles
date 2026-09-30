@@ -88,7 +88,7 @@ require("lazy").setup({
       'neovim/nvim-lspconfig'
     },
     {
-      'voidikss/vim-floaterm'
+      'voldikss/vim-floaterm'
     },
     {
       'saghen/blink.cmp',
