@@ -66,13 +66,5 @@ unset __conda_setup
 #   - the correct directories to the PATH
 #   - auto-completion for the opam binary
 # This section can be safely removed at any time if needed.
-[[ ! -r '/home/jeff/.opam/opam-init/init.zsh' ]] || source '/home/jeff/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# [[ ! -r '/home/jeff/.opam/opam-init/init.zsh' ]] || source '/home/jeff/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
-
-# pnpm
-export PNPM_HOME="/home/jeff/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
