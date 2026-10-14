@@ -63,6 +63,6 @@ alias npx='pnpx'
 
 alias oc='opencode'
 
-alias send='sendemail -s smtp.gmail.com:587 -o tls=yes'
+alias send='sendemail -s smtp.gmail.com:587 -o tls=yes -xp "$(rbw get "Google App Password - Sendemail")"'
 
 unalias gst
